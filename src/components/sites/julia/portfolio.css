@@ -521,6 +521,12 @@ body:has(.portfolio) {
   display: block;
 }
 
+.portfolio .featured .section-label,
+.portfolio .featured .media-caption,
+.portfolio .featured .credit {
+  text-transform: none;
+}
+
 .portfolio .section-label {
   font-size: 0.7rem;
   letter-spacing: 0.1em;

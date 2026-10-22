@@ -204,7 +204,7 @@ export function Portfolio() {
             <About />
           </section>
 
-          <section className={view === "featured" ? "active" : undefined}>
+          <section className={view === "featured" ? "featured active" : "featured"}>
             <Featured />
           </section>
 
@@ -350,7 +350,7 @@ function About() {
           <span className="section-label">[ABOUT] ✵</span>
           <p>hey, you! ☻</p>
           <p>
-            i&apos;m júlia, a creative copywriter currently working as a junior copywriter at w3, straight from my home in northeastern of brazil. it&apos;s kind of wild to think i ended up here, because 19 year old júlia was absolutely convinced she&apos;d be working at a newspaper by now. but life has interesting ways of surprising us. i found myself in this universe of writing for beauty and lifestyle brands, and here i am.
+            i&apos;m júlia, a creative copywriter currently working as a junior copywriter at w3 agency, straight from my home in northeastern of brazil. it&apos;s kind of wild to think i ended up here, because 19 year old júlia was absolutely convinced she&apos;d be working at a newspaper by now. but life has interesting ways of surprising us. i found myself in this universe of writing for beauty and lifestyle brands, and here i am.
           </p>
           <p>
             i&apos;m obsessed with cats, asian and pop culture, and cooking exclusively based on tiktok videos. fun facts about me: i learned spanish by watching colombian novelas (thank you, la reina del flow!), not a big fan of cakes, and i&apos;m fully committed to expanding my portfolio of questionable reality shows.
@@ -441,15 +441,14 @@ function Featured() {
       <h1 className="case-title">Featured Projects & Highlights</h1>
 
       <div className="case-body">
-        <span className="section-label">[HIGHLIGHTS] ✵</span>
+        <span className="section-label">[highlights] ✵</span>
         <img src="/sites/julia/wix/futura.png" alt="Canal Futura" className="partner-logo" />
         <h2 className="subsection-title">Short films</h2>
         <p>
-          In 2023, I was one of 36 students from Brazil selected for Canal Futura&apos;s two-week audiovisual training. During that program I made two short films, Iyá and Doulas em Ação, both screened on the channel&apos;s national schedule.
+          in 2023, i was one of 36 students from brazil selected for canal futura&apos;s two-week audiovisual training. during that program i made two short films, iyá and doulas em ação, both screened on the channel&apos;s national schedule.
         </p>
-        <p>On the first, I worked as screenwriter and recording assistant. On the second, as director and screenwriter.</p>
-        <p className="note">*Both were screened, but they are not available online yet. There is a recording of the first film&apos;s screening.</p>
-        <img src="/sites/julia/wix/short-film.jpg" alt="Still from the short film Iyá" className="feature-photo" />
+        <p>on the first, i worked as screenwriter and recording assistant. on the second, as director and screenwriter.</p>
+        <p className="note">*both were screened, but they are not available online yet. there is a recording of the first film&apos;s screening.</p>
       </div>
 
       <div className="video-pair">
@@ -462,7 +461,7 @@ function Featured() {
               allowFullScreen
             />
           </div>
-          <p className="media-caption">Iyá — Canal Futura</p>
+          <p className="media-caption">iyá — canal futura</p>
         </div>
         <div>
           <div className="video-frame">
@@ -473,7 +472,7 @@ function Featured() {
               allowFullScreen
             />
           </div>
-          <p className="media-caption">Doulas em Ação — Canal Futura</p>
+          <p className="media-caption">doulas em ação — canal futura</p>
         </div>
       </div>
 
@@ -483,14 +482,14 @@ function Featured() {
         <img src="/sites/julia/wix/distintas.png" alt="Distintas Latitudes" className="partner-logo" />
         <h2 className="subsection-title">Photo essay</h2>
         <p>
-          In 2024, I was one of 4 Brazilian women selected for the{" "}
+          in 2024, i was one of 4 brazilian women selected for the{" "}
           <a className="inline-link" href="https://jovenesperiodistas.org/seleccion-8a-generacion/" target="_blank" rel="noreferrer">
-            8th Generation of the LATAM Network of Young Journalists
+            8th generation of the latam network of young journalists
           </a>
-          , a 10-month online training program from Mexico.
+          , a 10-month online training program from mexico.
         </p>
         <p>
-          During that experience I published for the first time in Spanish: the photo essay “El Día Después: historias de migrantes dentro y fuera de Latinoamérica,” for which I also edited, curated, and treated the images.
+          during that experience i published for the first time in spanish: the photo essay “el día después: historias de migrantes dentro y fuera de latinoamérica,” for which i also edited, curated, and treated the images.
         </p>
         <p>
           <a className="inline-link" href="https://distintaslatitudes.net/destacado/el-dia-despues" target="_blank" rel="noreferrer">
@@ -507,13 +506,13 @@ function Featured() {
       <hr className="case-divider" />
 
       <div className="case-body">
-        <span className="section-label">[COLLABORATIONS] ✵</span>
+        <span className="section-label">[collaborations] ✵</span>
         <img src="/sites/julia/wix/publica.png" alt="Agência Pública" className="partner-logo" />
         <h2 className="subsection-title">Photojournalism</h2>
         <p>
-          In 2023, I contributed as a photojournalist to the report “Mining companies threaten traditional communities in the Bahian sertão,” alongside journalist Nathallia Fonseca.
+          in 2023, i contributed as a photojournalist to the report “mining companies threaten traditional communities in the bahian sertão,” alongside journalist nathallia fonseca.
         </p>
-        <p>The photographs were made at Fundo de Pasto Caboclo, in the rural area of Juazeiro, Bahia.</p>
+        <p>the photographs were made at fundo de pasto caboclo, in the rural area of juazeiro, bahia.</p>
         <p>
           <a
             className="inline-link"
@@ -524,26 +523,24 @@ function Featured() {
             read the report ↗
           </a>
         </p>
-        <p>A few of them:</p>
+        <p>a few of them:</p>
       </div>
       <div className="photo-grid">
         {gallery.map((photo) => (
           <CroppedImage key={photo.src} src={photo.src} alt={photo.alt} kind="photo" />
         ))}
       </div>
-      <p className="credit">© Júlia Vasconcelos</p>
+      <p className="credit">© júlia vasconcelos</p>
 
       <hr className="case-divider" />
 
       <div className="case-body">
-        <img src="/sites/julia/wix/cajueira.webp" alt="Cajueira" className="partner-logo" />
+        <img src="/sites/julia/wix/sesc.png" alt="Sesc Pernambuco" className="partner-logo" />
         <h2 className="subsection-title">Podcast production</h2>
         <p>
-          With the Deixe de Pantim Podcast team, I produced and hosted Aldeia Podcast, an exclusive part of the program for the XVII Festival Aldeia do Velho Chico. It brought together the festival&apos;s filmmakers, artists, and producers to talk about the lineup of the largest arts festival in the São Francisco Valley.
+          with the deixe de pantim podcast team, i produced and hosted aldeia podcast, an exclusive part of the program for the xvii festival aldeia do velho chico. it brought together the festival&apos;s filmmakers, artists, and producers to talk about the lineup of the largest arts festival in the são francisco valley.
         </p>
-        <p>I took part in the scripting and the hosting. Listen to the first episode:</p>
-        <img src="/sites/julia/wix/aldeia.jpg" alt="Aldeia Podcast playing on a tablet" className="feature-photo" />
-        <img src="/sites/julia/wix/sesc.png" alt="Sesc Pernambuco" className="partner-logo" />
+        <p>i took part in the scripting and the hosting. listen to the first episode:</p>
         <Spotify
           src="https://open.spotify.com/embed/episode/4S8KezAZuyZTGjIhobl798?utm_source=generator"
           title="Aldeia Podcast, episode 1, on Spotify"
@@ -553,18 +550,14 @@ function Featured() {
       <hr className="case-divider" />
 
       <div className="case-body">
-        <span className="section-label">[NETWORK OF YOUNG JOURNALISTS]</span>
+        <span className="section-label">[network of young journalists]</span>
+        <img src="/sites/julia/wix/cajueira.webp" alt="Cajueira" className="partner-logo" />
         <h2 className="subsection-title">Correspondent reporter</h2>
         <p>
-          I traveled more than 60 km to the community of Massaroca to visit the Professora Valdete Bispo Gama full-time municipal school, in Juazeiro, Bahia, and interview children and education professionals.
+          i traveled more than 60 km to the community of massaroca to visit the professora valdete bispo gama full-time municipal school, in juazeiro, bahia, and interview children and education professionals.
         </p>
-        <p>I recorded the interviews and the ambient sound, and made the photos and videos shared on social media.</p>
-        <p>Listen to the episode:</p>
-        <img
-          src="/sites/julia/wix/correspondent.jpg"
-          alt="Interview at a school in Juazeiro, Bahia"
-          className="feature-photo"
-        />
+        <p>i recorded the interviews and the ambient sound, and made the photos and videos shared on social media.</p>
+        <p>listen to the episode:</p>
         <Spotify
           src="https://open.spotify.com/embed/episode/4nKW34QYy936CQXfLTRcsE?utm_source=generator"
           title="Correspondent reporter episode on Spotify"
