@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Júlia Vasconcelos — copywriter and journalist</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --bg: #F7F7F5;
+      --text: #222222;
+      --border: #DDDDDD;
+      --muted: #888;
+      --placeholder-bg: #E8E4DC;
+    }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Space Mono', 'Courier New', monospace;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 10px;
+      font-weight: 400;
+      font-style: normal;
+      line-height: 1.75;
+      letter-spacing: 0em;
+      word-spacing: -0.01em;
+      min-height: 100vh;
+    }
+
+    /* ── HEADER ── */
+    header {
+      position: sticky; top: 0; z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 22px 40px;
+      display: flex; justify-content: space-between; align-items: flex-start;
+    }
+    .header-left .name {
+      font-size: clamp(1.0rem, 2.2vw, 1.3rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      display: block;
+      cursor: pointer;
+      text-decoration: none;
+      color: var(--text);
+      transition: opacity 0.15s;
+    }
+    .header-left .name:hover { opacity: 0.55; }
+    .header-left .role {
+      font-size: 0.75rem;
+      font-weight: 400;
+      display: block;
+      margin-top: 2px;
+      opacity: 0.6;
+      letter-spacing: 0.02em;
+    }
+    nav { display: flex; gap: 0; align-items: center; padding-top: 4px; }
+    nav a {
+      font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em;
+      text-decoration: none; color: var(--text); padding: 2px 0;
+      border-bottom: 1px solid transparent; transition: border-color 0.15s; cursor: pointer;
+    }
+    nav a.active, nav a:hover { border-bottom-color: var(--text); }
+    nav .sep { margin: 0 10px; font-size: 0.75rem; opacity: 0.4; user-select: none; }
+
+    /* ── MAIN ── */
+    main { padding: 52px 40px 40px; max-width: 1200px; margin: 0 auto; }
+    section { display: none; }
+    section.active { display: block; }
+
+    /* ── WORK HEADLINE ── */
+    .work-headline {
+      font-size: clamp(0.82rem, 1.3vw, 1.0rem);
+      font-weight: 400;
+      line-height: 1.75;
+      margin-bottom: 48px;
+      max-width: 820px;
+      letter-spacing: 0em;
+    }
+    .work-headline u { text-decoration: underline; text-underline-offset: 3px; }
+    .work-headline .star { font-size: 0.85em; opacity: 0.45; margin-left: 4px; }
+
+    /* ── WORK GRID ── */
+    .work-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .case-card {
+      position: relative; border-radius: 20px; overflow: hidden;
+      aspect-ratio: 3/2; cursor: pointer; display: block; text-decoration: none;
+    }
+    .case-card img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.22s; }
+    .case-card:hover img { opacity: 0.72; }
+    .case-overlay {
+      position: absolute; inset: 0; border-radius: 20px;
+      background: rgba(0,0,0,0.38);
+      display: flex; align-items: center; justify-content: center;
+      opacity: 0; transition: opacity 0.22s;
+    }
+    .case-card:hover .case-overlay { opacity: 1; }
+    .case-overlay span {
+      color: #fff; font-size: 0.8rem; font-weight: 400;
+      text-transform: uppercase; letter-spacing: 0.08em; text-align: center;
+    }
+
+    /* ── CASE PAGES ── */
+    .case-page { display: none; }
+    .case-page.active { display: block; }
+    .case-back {
+      display: inline-block; font-size: 0.75rem; color: var(--text);
+      margin-bottom: 44px; cursor: pointer; background: none; border: none;
+      border-bottom: 1px solid transparent;
+      font-family: 'Space Mono', monospace; padding: 0;
+      transition: border-color 0.15s;
+    }
+    .case-back:hover { border-bottom-color: var(--text); }
+    .case-title {
+      font-size: clamp(0.95rem, 2.0vw, 1.25rem);
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.04em;
+      margin-bottom: 22px;
+    }
+    .case-body { max-width: 680px; }
+    .case-body p {
+      font-size: 0.9rem;
+      line-height: 1.8;
+      margin-bottom: 12px;
+      letter-spacing: 0em;
+    }
+    .case-body ul { list-style: none; margin-bottom: 20px; }
+    .case-body ul li::before { content: "✵ "; opacity: 0.4; }
+    .case-body ul li { font-size: 0.85rem; line-height: 1.75; }
+    .case-divider { border: none; border-top: 1px solid var(--border); margin: 36px 0; }
+
+    /* ── MEDIA PAIRS ── */
+    .media-pair {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      margin: 26px 0;
+      align-items: stretch;
+    }
+    .pair-photo { border-radius: 14px; overflow: hidden; }
+    .pair-photo img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 14px; }
+
+    /* ── EMAIL THUMBNAIL ── */
+    .pair-email {
+      border-radius: 14px; overflow: hidden;
+      cursor: zoom-in; position: relative;
+      background: #f0ede8;
+    }
+    .pair-email img {
+      width: 100%; height: 100%;
+      object-fit: cover; object-position: top center;
+      display: block; border-radius: 14px;
+      transition: opacity 0.18s;
+    }
+    .pair-email:hover img { opacity: 0.85; }
+    .zoom-hint {
+      position: absolute; bottom: 9px; right: 9px;
+      background: rgba(0,0,0,0.52); color: #fff;
+      font-size: 0.58rem; letter-spacing: 0.07em;
+      padding: 3px 8px; border-radius: 20px;
+      text-transform: uppercase; pointer-events: none;
+      opacity: 0; transition: opacity 0.18s;
+    }
+    .pair-email:hover .zoom-hint { opacity: 1; }
+
+    /* ── LIGHTBOX ── */
+    #lightbox {
+      display: none; position: fixed; inset: 0; z-index: 9999;
+      background: rgba(0,0,0,0.92);
+      align-items: center; justify-content: center;
+      cursor: zoom-out; overflow: auto;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox-inner {
+      position: relative; max-height: 90vh; max-width: 90vw;
+      overflow: auto; border-radius: 8px; cursor: default;
+    }
+    #lightbox-inner img {
+      display: block; max-width: 100%; height: auto;
+      border-radius: 8px; transition: transform 0.2s ease;
+      cursor: zoom-in;
+    }
+    #lightbox-inner img.zoomed {
+      cursor: zoom-out; transform: scale(2.2); transform-origin: top center;
+    }
+    #lightbox-close {
+      position: fixed; top: 20px; right: 28px;
+      background: none; border: none; color: #fff;
+      font-size: 2rem; cursor: pointer; line-height: 1;
+      font-family: 'Space Mono', monospace;
+      opacity: 0.7; transition: opacity 0.15s; z-index: 10000;
+    }
+    #lightbox-close:hover { opacity: 1; }
+    #lightbox-zoom-hint {
+      position: fixed; bottom: 22px; left: 50%; transform: translateX(-50%);
+      background: rgba(255,255,255,0.12); color: #fff;
+      font-size: 0.65rem; letter-spacing: 0.07em;
+      padding: 5px 13px; border-radius: 20px;
+      text-transform: uppercase; pointer-events: none;
+      font-family: 'Space Mono', monospace;
+    }
+
+    /* ── VIDEO ── */
+    .berenice-video {
+      width: 100%; max-width: 400px;
+      border-radius: 14px; display: block; margin: 26px 0;
+    }
+
+    /* ── INSTAGRAM / SPOTIFY ── */
+    .instagram-wrap { max-width: 540px; margin: 22px 0; }
+    .spotify-wrap {
+      max-width: 400px;
+      margin: 22px 0 22px auto;
+    }
+
+    /* ── ABOUT ── */
+    .about-top {
+      display: grid;
+      grid-template-columns: 230px 1fr 1fr;
+      gap: 44px;
+      margin-bottom: 52px;
+    }
+    .about-photo {
+      width: 100%; height: 530px;
+      border-radius: 14px; object-fit: cover;
+      object-position: top center; display: block;
+    }
+    .section-label {
+      font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase;
+      font-weight: 400; margin-bottom: 14px; display: flex;
+      align-items: center; gap: 6px; opacity: 0.65;
+    }
+    .about-bio p {
+      font-size: 0.88rem; line-height: 1.8; margin-bottom: 12px; letter-spacing: 0em;
+    }
+    .exp-item { margin-bottom: 22px; }
+    .exp-company { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; display: block; }
+    .exp-role, .exp-year { font-size: 0.82rem; display: block; }
+    .exp-year { opacity: 0.55; }
+    .about-section { border-top: 1px solid var(--border); padding: 32px 0; }
+    .about-section:last-child { border-bottom: 1px solid var(--border); }
+    .clients-list { font-size: 0.88rem; line-height: 2; }
+    .edu-item { margin-bottom: 16px; }
+    .edu-inst { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; display: block; }
+    .edu-detail { font-size: 0.82rem; display: block; }
+    .add-edu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; max-width: 460px; }
+    .add-edu-row { display: contents; }
+    .add-edu-inst { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; padding: 5px 0; }
+    .add-edu-detail { font-size: 0.82rem; padding: 5px 0; }
+    .lang-grid { display: grid; grid-template-columns: auto auto; gap: 0 36px; max-width: 280px; }
+    .lang-name { font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; font-size: 0.75rem; padding: 4px 0; }
+    .lang-level { font-size: 0.82rem; padding: 4px 0; }
+    .contact-links { display: flex; flex-direction: column; gap: 4px; }
+    .contact-links a { font-size: 0.88rem; color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; width: fit-content; transition: border-color 0.15s; }
+    .contact-links a:hover { border-bottom-color: var(--text); }
+    a.inline-link { color: var(--text); text-decoration: none; border-bottom: 1px solid transparent; transition: border-color 0.15s; font-size: 0.82rem; }
+    a.inline-link:hover { border-bottom-color: var(--text); }
+
+    /* ── FOOTER ── */
+    footer {
+      border-top: 1px solid var(--border);
+      text-align: center;
+      padding: 40px;
+      font-size: 1.05rem;
+      font-weight: 700;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      header { flex-direction: column; gap: 14px; padding: 18px 20px; }
+      main { padding: 36px 20px 24px; }
+      .work-grid { grid-template-columns: 1fr; }
+      .about-top { grid-template-columns: 1fr; gap: 24px; }
+      .about-photo { height: auto; aspect-ratio: 3/4; }
+      .media-pair { grid-template-columns: 1fr; }
+      .spotify-wrap { margin-left: 0; max-width: 100%; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div id="lightbox">
+  <button id="lightbox-close" aria-label="Fechar">×</button>
+  <div id="lightbox-inner">
+    <img id="lightbox-img" src="" alt="">
+  </div>
+  <span id="lightbox-zoom-hint">clique na imagem para ampliar · clique fora para fechar</span>
+</div>
+
+<header>
+  <div class="header-left">
+    <span class="name" id="home-link">Júlia Vasconcelos</span>
+    <span class="role">copywriter and journalist</span>
+  </div>
+  <nav>
+    <a href="#" class="nav-link active" data-target="work">WORK</a>
+    <span class="sep">·</span>
+    <a href="#" class="nav-link" data-target="about">ABOUT</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ══ WORK ══ -->
+  <section id="work" class="active">
+    <p class="work-headline">copywriter based in pernambuco, brazil. currently working for <u>o boticário</u> and <u>quem disse, berenice?</u> at w3haus.<span class="star"> ✵</span></p>
+    <div class="work-grid">
+      <a class="case-card" href="#" data-case="boticario">
+        <img src="DATA" alt="O Boticário" style="object-position: center 30%;">
+        <div class="case-overlay"><span>O Boticário</span></div>
+      </a>
+      <a class="case-card" href="#" data-case="berenice">
+        <img src="DATA" alt="Quem Disse, Berenice?" style="object-position: center 20%;">
+        <div class="case-overlay"><span>Quem Disse, Berenice?</span></div>
+      </a>
+      <a class="case-card" href="#" data-case="cea">
+        <img src="DATA" alt="C&A" style="object-position: center 35%;">
+        <div class="case-overlay"><span>C&amp;A</span></div>
+      </a>
+      <a class="case-card" href="#" data-case="trackfield">
+        <img src="DATA" alt="Track&Field" style="object-position: center 28%;">
+        <div class="case-overlay"><span>Track&amp;Field</span></div>
+      </a>
+      <a class="case-card" href="#" data-case="villalobos">
+        <img src="DATA" alt="Shopping Villa Lobos" style="object-position: center 30%;">
+        <div class="case-overlay"><span>Shopping Villa Lobos</span></div>
+      </a>
+      <a class="case-card" href="#" data-case="pantim">
+        <img src="DATA" alt="Deixe de Pantim" style="object-position: center 38%;">
+        <div class="case-overlay"><span>Deixe de Pantim</span></div>
+      </a>
+    </div>
+  </section>
+
+  <!-- ══ ABOUT ══ -->
+  <section id="about">
+    <div class="about-top">
+      <div>
+        <img src="DATA" alt="Júlia Vasconcelos" class="about-photo">
+      </div>
+      <div class="about-bio">
+        <span class="section-label">[ABOUT] ✵</span>
+        <p>hey, you! ☻</p>
+        <p>i'm júlia, a creative copywriter currently working as a junior copywriter at w3, straight from my home in northeastern of brazil. it's kind of wild to think i ended up here, because 19 year old júlia was absolutely convinced she'd be working at a newspaper by now. but life has interesting ways of surprising us. i found myself in this universe of writing for beauty and lifestyle brands, and here i am.</p>
+        <p>i'm obsessed with cats, asian and pop culture, and cooking exclusively based on tiktok videos. fun facts about me: i learned spanish by watching colombian novelas (thank you, la reina del flow!), not a big fan of cakes, and i'm fully committed to expanding my portfolio of questionable reality shows.</p>
+      </div>
+      <div>
+        <span class="section-label">[EXPERIENCE] ✵</span>
+        <div class="exp-item">
+          <span class="exp-company">W3HAUS</span>
+          <span class="exp-role">copywriter jr.</span>
+          <span class="exp-year">2025 — currently</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-company">ROAD AG</span>
+          <span class="exp-role">copywriter and social strategist</span>
+          <span class="exp-year">2025</span>
+        </div>
+        <div class="exp-item">
+          <span class="exp-company">POINT MEDIA</span>
+          <span class="exp-role">copywriter jr.</span>
+          <span class="exp-year">2024 — 2025</span>
+        </div>
+        <a href="https://www.linkedin.com/in/julia-vasconcelos1/" target="_blank" class="inline-link">see more ↗</a>
+      </div>
+    </div>
+
+    <div class="about-section">
+      <span class="section-label">[SELECTED CLIENTS] ✵</span>
+      <p class="clients-list">O Boticário · Quem Disse, Berenice? · C&amp;A · Track&amp;Field · Shopping Villa Lobos</p>
+    </div>
+    <div class="about-section">
+      <span class="section-label">[EDUCATION]</span>
+      <div class="edu-item">
+        <span class="edu-inst">STATE UNIVERSITY OF BAHIA (UNEB)</span>
+        <span class="edu-detail">b.a in journalism</span>
+        <span class="edu-detail" style="opacity:0.55">2017 — 2023</span>
+      </div>
+    </div>
+    <div class="about-section">
+      <span class="section-label">[ADDITIONAL EDUCATION]</span>
+      <div class="add-edu-grid">
+        <div class="add-edu-row">
+          <span class="add-edu-inst">ESCOLA CUCA</span>
+          <span class="add-edu-detail">2025 · copywriting</span>
+        </div>
+        <div class="add-edu-row">
+          <span class="add-edu-inst">CANAL FUTURA</span>
+          <span class="add-edu-detail">2023 · audiovisual</span>
+        </div>
+        <div class="add-edu-row">
+          <span class="add-edu-inst">SESC</span>
+          <span class="add-edu-detail">2021 · photography</span>
+        </div>
+      </div>
+    </div>
+    <div class="about-section">
+      <span class="section-label">[LANGUAGES]</span>
+      <div class="lang-grid">
+        <span class="lang-name">PORTUGUESE</span><span class="lang-level">native</span>
+        <span class="lang-name">ENGLISH</span><span class="lang-level">advanced</span>
+        <span class="lang-name">SPANISH</span><span class="lang-level">advanced</span>
+      </div>
+    </div>
+    <div class="about-section">
+      <span class="section-label">[CONTACT]</span>
+      <div class="contact-links">
+        <a href="mailto:juliavasconcelos.rocha@gmail.com">juliavasconcelos.rocha@gmail.com</a>
+        <a href="https://www.linkedin.com/in/julia-vasconcelos1/" target="_blank">linkedin ↗</a>
+        <a href="https://www.behance.net/juvrocha" target="_blank">behance ↗</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CASE: O BOTICÁRIO ══ -->
+  <section id="case-boticario" class="case-page">
+    <button class="case-back" data-back>← work</button>
+    <h1 class="case-title">O Boticário</h1>
+    <div class="case-body">
+      <p>at o boticário, i write copy for the brand's paid media campaigns, creating ads across digital channels. i've contributed to major campaigns including beauty week, boti promo, and studio boti.</p>
+      <p>i also create always-on social content for product launches and key brand moments such as carnival, and contribute to real-time marketing by turning trends and cultural conversations into opportunities for the brand.</p>
+      <ul>
+        <li>carnival influencer campaign</li>
+        <li>scripts for creator-led social content</li>
+      </ul>
+    </div>
+    <div class="instagram-wrap">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUt2ZQ6EWKH/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>
+    </div>
+    <div class="instagram-wrap">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/reel/DUqtx1kEVmM/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>
+    </div>
+  </section>
+
+  <!-- ══ CASE: QUEM DISSE, BERENICE? ══ -->
+  <section id="case-berenice" class="case-page">
+    <button class="case-back" data-back>← work</button>
+    <h1 class="case-title">Quem Disse, Berenice?</h1>
+    <div class="case-body">
+      <p>at quem disse, berenice?, i write copy for the brand's paid media campaigns, creating ads across digital channels. i've contributed to campaigns including the christmas of 2025, the launch of the mochi blur makeup collection, the tô no glow makeup line, and other product launches.</p>
+    </div>
+    <video class="berenice-video" controls playsinline preload="metadata">
+      <source src="DATA" type="video/mp4">
+    </video>
+  </section>
+
+  <!-- ══ CASE: C&A ══ -->
+  <section id="case-cea" class="case-page">
+    <button class="case-back" data-back>← work</button>
+    <h1 class="case-title">C&amp;A</h1>
+    <div class="case-body">
+      <p>in partnership with c&amp;a's marketing team, i contributed to the creative execution of the brand's crm communications, writing email marketing campaigns and push notifications, two of its most important conversion channels. i worked on campaigns for valentine's day, children's day, seasonal collection launches, and major cultural moments like rock in rio's 40th anniversary.</p>
+    </div>
+    <div class="media-pair">
+      <div class="pair-photo"><img src="DATA" alt="C&A foto 1" style="object-position: center 25%;"></div>
+      <div class="pair-email lightbox-trigger" data-src="DATA">
+        <img src="DATA" alt="C&A email 1">
+        <span class="zoom-hint">ver completo</span>
+      </div>
+    </div>
+    <hr class="case-divider">
+    <div class="media-pair">
+      <div class="pair-photo"><img src="DATA" alt="C&A foto 2" style="object-position: center 30%;"></div>
+      <div class="pair-email lightbox-trigger" data-src="DATA">
+        <img src="DATA" alt="C&A email 2">
+        <span class="zoom-hint">ver completo</span>
+      </div>
+    </div>
+    <hr class="case-divider">
+    <div class="media-pair">
+      <div class="pair-photo"><img src="DATA" alt="C&A foto 3" style="object-position: center 20%;"></div>
+      <div class="pair-email lightbox-trigger" data-src="DATA">
+        <img src="DATA" alt="C&A email 3">
+        <span class="zoom-hint">ver completo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CASE: TRACK&FIELD ══ -->
+  <section id="case-trackfield" class="case-page">
+    <button class="case-back" data-back>← work</button>
+    <h1 class="case-title">Track&amp;Field</h1>
+    <div class="case-body">
+      <p>at track&amp;field, i created crm communications, developed both online and offline catalogs, social media assets, and exclusive communication materials for franchisees across brazil, always ensuring consistency in the brand's tone of voice.</p>
+      <p>i also produced content for the brand's sister businesses: tfsports, tfmall, and tfcoffee.</p>
+    </div>
+    <div class="media-pair">
+      <div class="pair-photo"><img src="DATA" alt="Track&Field foto 1" style="object-position: center 30%;"></div>
+      <div class="pair-email lightbox-trigger" data-src="DATA">
+        <img src="DATA" alt="Track&Field email 1">
+        <span class="zoom-hint">ver completo</span>
+      </div>
+    </div>
+    <hr class="case-divider">
+    <div class="media-pair">
+      <div class="pair-photo"><img src="DATA" alt="Track&Field foto 2" style="object-position: center 25%;"></div>
+      <div class="pair-email lightbox-trigger" data-src="DATA">
+        <img src="DATA" alt="Track&Field email 2">
+        <span class="zoom-hint">ver completo</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══ CASE: SHOPPING VILLA LOBOS ══ -->
+  <section id="case-villalobos" class="case-page">
+    <button class="case-back" data-back>← work</button>
+    <h1 class="case-title">Shopping Villa Lobos</h1>
+    <div class="case-body">
+      <p>at shopping villa lobos, i contributed to the campaign for the sp open, an international tennis tournament sponsored by the shopping center as its title sponsor. i helped develop the campaign's content strategy and wrote copy for its social media rollout. i also created always-on content highlighting fashion, lifestyle, and retail trends while showcasing the brands and experiences that make up the shopping center's portfolio.</p>
+    </div>
+    <div class="instagram-wrap">
+      <blockquote class="instagram-media" data-instgrm-captioned data-instgrm-permalink="https://www.instagram.com/p/DNZEN_6sCdN/?utm_source=ig_embed&amp;utm_campaign=loading" data-instgrm-version="14" style="background:#FFF;border:0;border-radius:3px;box-shadow:0 0 1px 0 rgba(0,0,0,0.5),0 1px 10px 0 rgba(0,0,0,0.15);margin:1px;max-width:540px;min-width:326px;padding:0;width:99.375%;width:calc(100% - 2px);"></blockquote>
+    </div>
+  </section>
+
+  <!-- ══ CASE: DEIXE DE PANTIM ══ -->
+  <section id="case-pantim" class="case-page">
+    <button class="case-back" data-back>← work</button>
+    <h1 class="case-title">Deixe de Pantim</h1>
+    <div class="case-body">
+      <p>in 2020, during the pandemic, three friends and i finally brought a long-time dream to life: launching a podcast. across three years, we explored conversations around territory, gender, and pop culture with a mix of humor and thoughtful discussion.</p>
+      <p>the project also led us to speak at workshops and talks on podcast production across northeastern brazil, invited by sesc pernambuco.</p>
+      <p><a href="#" class="inline-link">to learn more about the project, click here ↗</a></p>
+    </div>
+    <div class="spotify-wrap">
+      <iframe style="border-radius:12px" src="LONG" width="100%" height="232" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+    </div>
+  </section>
+
+</main>
+
+<footer>tks for stopping by ☻</footer>
+
+<script async src="https://www.instagram.com/embed.js"></script>
+<script>
+  const navLinks = document.querySelectorAll('.nav-link');
+  const mainSections = document.querySelectorAll('main > section:not(.case-page)');
+  const casePages = document.querySelectorAll('.case-page');
+
+  function showMainSection(id) {
+    mainSections.forEach(s => s.classList.remove('active'));
+    casePages.forEach(p => p.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    navLinks.forEach(l => l.classList.toggle('active', l.dataset.target === id));
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  navLinks.forEach(l => l.addEventListener('click', e => { e.preventDefault(); showMainSection(l.dataset.target); }));
+  document.getElementById('home-link').addEventListener('click', () => showMainSection('work'));
+
+  document.querySelectorAll('.case-card').forEach(card => {
+    card.addEventListener('click', e => {
+      e.preventDefault();
+      const id = 'case-' + card.dataset.case;
+      mainSections.forEach(s => s.classList.remove('active'));
+      casePages.forEach(p => p.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      navLinks.forEach(l => l.classList.remove('active'));
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      setTimeout(() => { if (window.instgrm) window.instgrm.Embeds.process(); }, 350);
+    });
+  });
+
+  document.querySelectorAll('[data-back]').forEach(btn => btn.addEventListener('click', () => showMainSection('work')));
+
+  // Lightbox
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lightbox-img');
+  let isZoomed = false;
+
+  document.querySelectorAll('.lightbox-trigger').forEach(el => {
+    el.addEventListener('click', () => {
+      lbImg.src = el.dataset.src;
+      lbImg.classList.remove('zoomed');
+      isZoomed = false;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    });
+  });
+
+  lbImg.addEventListener('click', e => {
+    e.stopPropagation();
+    isZoomed = !isZoomed;
+    lbImg.classList.toggle('zoomed', isZoomed);
+  });
+
+  function closeLightbox() {
+    lb.classList.remove('open');
+    lbImg.src = '';
+    lbImg.classList.remove('zoomed');
+    isZoomed = false;
+    document.body.style.overflow = '';
+  }
+
+  document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+  lb.addEventListener('click', e => { if (e.target === lb) closeLightbox(); });
+  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+  // Instagram retry
+  function processIG(n) {
+    if (window.instgrm) window.instgrm.Embeds.process();
+    else if (n > 0) setTimeout(() => processIG(n-1), 400);
+  }
+  setTimeout(() => processIG(12), 600);
+</script>
+</body>
+</html>

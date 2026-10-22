@@ -1,0 +1,195 @@
+[
+  {
+    "index": 0,
+    "tag": "img",
+    "alt": "",
+    "src": "",
+    "file": null
+  },
+  {
+    "index": 1,
+    "tag": "img",
+    "alt": "O Boticário",
+    "mime": "image/jpeg",
+    "bytes": 489744,
+    "file": "01-o-botic-rio.jpg"
+  },
+  {
+    "index": 2,
+    "tag": "img",
+    "alt": "Quem Disse, Berenice?",
+    "mime": "image/jpeg",
+    "bytes": 378510,
+    "file": "02-quem-disse-berenice.jpg"
+  },
+  {
+    "index": 3,
+    "tag": "img",
+    "alt": "C&A",
+    "mime": "image/jpeg",
+    "bytes": 408480,
+    "file": "03-c-a.jpg"
+  },
+  {
+    "index": 4,
+    "tag": "img",
+    "alt": "Track&Field",
+    "mime": "image/jpeg",
+    "bytes": 131631,
+    "file": "04-track-field.jpg"
+  },
+  {
+    "index": 5,
+    "tag": "img",
+    "alt": "Shopping Villa Lobos",
+    "mime": "image/webp",
+    "bytes": 310950,
+    "file": "05-shopping-villa-lobos.webp"
+  },
+  {
+    "index": 6,
+    "tag": "img",
+    "alt": "Deixe de Pantim",
+    "mime": "image/jpeg",
+    "bytes": 2619133,
+    "file": "06-deixe-de-pantim.jpg"
+  },
+  {
+    "index": 7,
+    "tag": "img",
+    "alt": "Júlia Vasconcelos",
+    "mime": "image/jpeg",
+    "bytes": 86526,
+    "file": "07-j-lia-vasconcelos.jpg"
+  },
+  {
+    "index": 8,
+    "tag": "source",
+    "alt": "",
+    "mime": "video/mp4",
+    "bytes": 14887948,
+    "file": "08-source.mp4"
+  },
+  {
+    "index": 9,
+    "tag": "img",
+    "alt": "C&A foto 1",
+    "mime": "image/jpeg",
+    "bytes": 408480,
+    "file": "09-c-a-foto-1.jpg"
+  },
+  {
+    "index": 10,
+    "tag": "img",
+    "alt": "C&A email 1",
+    "mime": "image/png",
+    "bytes": 411370,
+    "file": "10-c-a-email-1.png"
+  },
+  {
+    "index": 11,
+    "tag": "img",
+    "alt": "C&A foto 2",
+    "mime": "image/jpeg",
+    "bytes": 415057,
+    "file": "11-c-a-foto-2.jpg"
+  },
+  {
+    "index": 12,
+    "tag": "img",
+    "alt": "C&A email 2",
+    "mime": "image/gif",
+    "bytes": 777412,
+    "file": "12-c-a-email-2.gif"
+  },
+  {
+    "index": 13,
+    "tag": "img",
+    "alt": "C&A foto 3",
+    "mime": "image/jpeg",
+    "bytes": 444930,
+    "file": "13-c-a-foto-3.jpg"
+  },
+  {
+    "index": 14,
+    "tag": "img",
+    "alt": "C&A email 3",
+    "mime": "image/png",
+    "bytes": 483459,
+    "file": "14-c-a-email-3.png"
+  },
+  {
+    "index": 15,
+    "tag": "img",
+    "alt": "Track&Field foto 1",
+    "mime": "image/jpeg",
+    "bytes": 131631,
+    "file": "15-track-field-foto-1.jpg"
+  },
+  {
+    "index": 16,
+    "tag": "img",
+    "alt": "Track&Field email 1",
+    "mime": "image/png",
+    "bytes": 232306,
+    "file": "16-track-field-email-1.png"
+  },
+  {
+    "index": 17,
+    "tag": "img",
+    "alt": "Track&Field foto 2",
+    "mime": "image/jpeg",
+    "bytes": 360176,
+    "file": "17-track-field-foto-2.jpg"
+  },
+  {
+    "index": 18,
+    "tag": "img",
+    "alt": "Track&Field email 2",
+    "mime": "image/png",
+    "bytes": 151857,
+    "file": "18-track-field-email-2.png"
+  },
+  {
+    "index": 19,
+    "tag": "iframe",
+    "alt": "",
+    "src": "https://open.spotify.com/embed/show/7juFBJ9FrBZwgbm1o95xiy?utm_source=generator&si=7c8b2a38c7384c9e",
+    "file": null
+  },
+  {
+    "index": "lb-0",
+    "tag": "data-src",
+    "mime": "image/png",
+    "bytes": 411370,
+    "file": "lightbox-00.png"
+  },
+  {
+    "index": "lb-1",
+    "tag": "data-src",
+    "mime": "image/gif",
+    "bytes": 777412,
+    "file": "lightbox-01.gif"
+  },
+  {
+    "index": "lb-2",
+    "tag": "data-src",
+    "mime": "image/png",
+    "bytes": 483459,
+    "file": "lightbox-02.png"
+  },
+  {
+    "index": "lb-3",
+    "tag": "data-src",
+    "mime": "image/png",
+    "bytes": 232306,
+    "file": "lightbox-03.png"
+  },
+  {
+    "index": "lb-4",
+    "tag": "data-src",
+    "mime": "image/png",
+    "bytes": 151857,
+    "file": "lightbox-04.png"
+  }
+]
